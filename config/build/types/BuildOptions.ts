@@ -2,6 +2,7 @@ export type BuildPath = {
     entry:string
     html:string
     build:string
+    src:string
 }
 
 export type BuildMode = 'production' | 'development'

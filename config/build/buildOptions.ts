@@ -22,7 +22,7 @@ export function buildOptions(config:BuildOptions):Configuration {
         module: {
             rules: buildLoaders(config),
         },
-        resolve: buildResolvers(),
+        resolve: buildResolvers(path),
         devtool: isDev ? 'inline-source-map' : undefined,
         devServer: isDev ? buildDevServer(config) : undefined,
         optimization: {
