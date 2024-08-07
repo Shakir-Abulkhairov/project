@@ -6,6 +6,7 @@ interface NavBarProps {
     className?:string
 }
 export const NavBar = ({className}:NavBarProps)=>{
+
     return(
         <div className={classNames(cls.NavBar,{},[className])}>
             <div className={cls.links}>

@@ -8,7 +8,11 @@ import {classNames} from "shared/lib/classNames";
 export const AppRouter = () =>{
     return   <Suspense fallback={'...loading'}>
         <Routes>
-            {routersConfig.map(({path,element}) =>  <Route key={path} {...{path,element}}/>)}
+            {routersConfig.map(({path,element}) =>  <Route key={path} {...{path}} element={
+                <div className={'page-wrapper'}>
+                    {element}
+                </div>
+            }/>)}
         </Routes>
     </Suspense>
 }

@@ -18,7 +18,7 @@ export function buildOptions(config:BuildOptions):Configuration {
             filename: '[name].[contenthash].js',
             clean: true
         },
-        plugins: buildPlugins(path),
+        plugins: buildPlugins(config),
         module: {
             rules: buildLoaders(config),
         },
