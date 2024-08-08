@@ -7,10 +7,6 @@ import {Theme} from "app/providers/ThemeProvider/lib/ThemeContext";
 import LightIcon from 'shared/assets/icons/light.svg'
 import MoonIcon from 'shared/assets/icons/moon.svg'
 
-export enum ToggleSwitcherTheme {
-    CLEAR = 'clear'
-}
-
 interface ToggleSwitcherProps{
     className?:string
 }

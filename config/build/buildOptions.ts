@@ -4,7 +4,6 @@ import {buildLoaders} from "./buildLoaders";
 import {buildResolvers} from "./buildResolvers";
 import { Configuration } from "webpack";
 import {buildDevServer} from "./buildDevServer";
-import TerserPlugin from "terser-webpack-plugin";
 import {buildOptimization} from "./buildOptimization";
 
 

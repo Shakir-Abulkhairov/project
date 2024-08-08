@@ -1,5 +1,4 @@
 import './styles/index.scss'
-import {Link} from "react-router-dom";
 import {useTheme} from "app/providers/ThemeProvider/lib/useTheme";
 import {classNames} from "shared/lib/classNames";
 import {AppRouter} from "app/providers/router/ui/AppRouter";

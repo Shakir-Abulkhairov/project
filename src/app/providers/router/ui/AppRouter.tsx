@@ -1,9 +1,6 @@
 import {Suspense} from "react";
 import {Route, Routes} from "react-router-dom";
-import {MainPage} from "pages/MainPage";
-import {AboutPage} from "pages/AboutPage";
 import {routersConfig} from "shared/config/routeConfig/routeConfig";
-import {classNames} from "shared/lib/classNames";
 
 export const AppRouter = () =>{
     return   <Suspense fallback={'...loading'}>
