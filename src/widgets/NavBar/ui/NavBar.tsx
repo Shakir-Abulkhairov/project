@@ -6,7 +6,7 @@ interface NavBarProps {
     className?:string
 }
 export const NavBar = ({className}:NavBarProps)=>{
-
+    console.log(classNames('test',{hovered:true,isActive:true},['additional']))
     return(
         <div className={classNames(cls.NavBar,{},[className])}>
             <div className={cls.links}>

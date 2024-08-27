@@ -1,4 +1,3 @@
-import cls from './ThemeSwitcher.module.scss';
 import {classNames} from "shared/lib/classNames";
 import {FC} from "react";
 import {useTheme} from "app/providers/ThemeProvider/lib/useTheme";
@@ -21,7 +20,7 @@ export const ThemeSwitcher:FC<ToggleSwitcherProps> = (props)=>{
             theme={ButtonTheme.CLEAR}
             onClick={toggleTheme}
             {...otherProps}
-            className={classNames(cls.ToggleSwitcher,{},[className])}>
+            className={classNames('',{},[className])}>
             {theme === Theme.DARK ? <LightIcon width={'30px'}/> : <MoonIcon width={'30px'}/>}
         </Button>
     )

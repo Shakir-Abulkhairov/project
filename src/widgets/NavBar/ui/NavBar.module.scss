@@ -1,4 +1,4 @@
-.NavBar{
+.NavBar {
   background: var(--inverted--bg-color);
   width: 100%;
   height: var(--navbar-height);
@@ -6,14 +6,14 @@
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
-
 }
-.links{
+
+.links {
   margin-left: auto;
   display: flex;
   gap: 4px;
 }
 
-.red{
+.red {
   color: red;
 }
