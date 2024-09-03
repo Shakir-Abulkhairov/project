@@ -3,9 +3,10 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type {Config} from 'jest';
 
-const config: Config = {
+import path from "path";
+
+const config = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -75,7 +76,7 @@ const config: Config = {
 
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: [
-    "node_modules"
+    "node_modules",
   ],
 
   // An array of file extensions your modules use
@@ -91,8 +92,14 @@ const config: Config = {
   ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
-
+  moduleNameMapper: {
+    "\\.s?css$": "identity-obj-proxy",
+    "\\.svg": path.resolve(__dirname,'jestEmptyContainer.tsx')
+  },
+  modulePaths:[
+    "<rootDir>src",
+  ],
+  setupFilesAfterEnv: ['<rootDir>config/jest/setup-jest.ts'],
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
 
