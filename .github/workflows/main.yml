@@ -7,9 +7,18 @@ jobs:
    runs-on: ubuntu-latest
    strategy:
      matrix:
-       node: [18x]
+       node: [ 18.x ]
 
    steps:
+     - uses: actions/checkout@v2
+     - name: Starting Node.js ${{ matrix.node-version }}
+     - uses: actions/setup-node@v1
+       with:
+          node-version: ${{ matrix.node }}
+     - name: install modules
+       run: npm install
+     - name: build production
+       run: npm run build:prod
      - name: run style-lint
        run: npm run styleLint
      - name: run unit
