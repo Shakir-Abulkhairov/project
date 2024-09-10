@@ -1,26 +1,29 @@
-name: linting,testing,building
+name: linting, testing, building
+
 on:
   push:
     branches: [master]
-jobs:
- pipeline:
-   runs-on: ubuntu-latest
-   strategy:
-     matrix:
-       node: [ 18.x ]
 
-   steps:
-     - uses: actions/checkout@v2
-     - uses: actions/setup-node@v1
-       with:
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
           node-version: ${{ matrix.node }}
-     - name: install modules
-       run: npm install
-     - name: build production
-       run: npm run build:prod
-     - name: run style-lint
-       run: npm run styleLint
-     - name: run unit
-       run: npm run unit
-     - name: run lint
-       run: npm run lint
+      - name: Install modules
+        run: npm install
+      - name: Build production
+        run: npm run build:prod
+      - name: Run style-lint
+        run: npm run styleLint
+      - name: Run unit tests
+        run: npm run unit
+      - name: Run lint
+        run: npm run lint
