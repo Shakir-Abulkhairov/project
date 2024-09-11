@@ -1,21 +1,20 @@
-import {BuildOptions} from "./types/BuildOptions";
-import {buildPlugins} from "./buildPlugins";
-import {buildLoaders} from "./buildLoaders";
-import {buildResolvers} from "./buildResolvers";
-import { Configuration } from "webpack";
-import {buildDevServer} from "./buildDevServer";
-import {buildOptimization} from "./buildOptimization";
-
+import { Configuration } from 'webpack';
+import { BuildOptions } from './types/BuildOptions';
+import { buildPlugins } from './buildPlugins';
+import { buildLoaders } from './buildLoaders';
+import { buildResolvers } from './buildResolvers';
+import { buildDevServer } from './buildDevServer';
+import { buildOptimization } from './buildOptimization';
 
 export function buildOptions(config:BuildOptions):Configuration {
-    const {mode,path,isDev} = config
+    const { mode, path, isDev } = config;
     return {
         mode,
-        entry:path.entry,
-        output:{
-            path:path.build,
+        entry: path.entry,
+        output: {
+            path: path.build,
             filename: '[name].[contenthash].js',
-            clean: true
+            clean: true,
         },
         plugins: buildPlugins(config),
         module: {
@@ -27,5 +26,5 @@ export function buildOptions(config:BuildOptions):Configuration {
         optimization: {
             minimizer: buildOptimization(),
         },
-    }
+    };
 }

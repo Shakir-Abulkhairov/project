@@ -1,10 +1,10 @@
-import webpack from "webpack";
-import {BuildPath} from "./types/BuildOptions";
+import webpack from 'webpack';
+import { BuildPath } from './types/BuildOptions';
 
-export function buildResolvers(options:BuildPath): webpack.ResolveOptions{
+export function buildResolvers(options:BuildPath): webpack.ResolveOptions {
     return {
         extensions: ['.tsx', '.ts', '.js'],
         mainFiles: ['index'],
-        modules:[options.src, 'node_modules'],
-    }
+        modules: [options.src, 'node_modules'],
+    };
 }

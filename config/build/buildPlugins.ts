@@ -1,11 +1,12 @@
-import webpack from "webpack";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import {BuildOptions} from "./types/BuildOptions";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BuildOptions } from './types/BuildOptions';
 
-export function buildPlugins (config:BuildOptions): webpack.WebpackPluginInstance[] {
-    const {path,isDev} = config
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
+export function buildPlugins(config:BuildOptions): webpack.WebpackPluginInstance[] {
+    const { path, isDev } = config;
 
     const plugins = [
         new webpack.ProgressPlugin(),
@@ -13,18 +14,18 @@ export function buildPlugins (config:BuildOptions): webpack.WebpackPluginInstanc
             template: path.html,
         }),
         new MiniCssExtractPlugin({
-            filename:'css/[name].[contenthash:8].css',
-            chunkFilename:'css/[name].[contenthash:8].css'
+            filename: 'css/[name].[contenthash:8].css',
+            chunkFilename: 'css/[name].[contenthash:8].css',
         }),
         new webpack.DefinePlugin({
-            __IS_DEV__:JSON.stringify(isDev)
+            __IS_DEV__: JSON.stringify(isDev),
         }),
-    ]
+    ];
 
-    if (isDev){
-        plugins.push(new webpack.HotModuleReplacementPlugin())
-        plugins.push(new BundleAnalyzerPlugin({openAnalyzer:false}))
+    if (isDev) {
+        plugins.push(new webpack.HotModuleReplacementPlugin());
+        plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
     }
 
-    return plugins
+    return plugins;
 }
