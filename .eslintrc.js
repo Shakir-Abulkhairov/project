@@ -41,5 +41,8 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'react/button-has-type': 'off',
         'no-restricted-globals': 'off',
+        'no-trailing-space': 'off',
+        'space-infix-ops': 'off',
+        'react/jsx-indent-props': 'off',
     },
 };
